@@ -1,0 +1,110 @@
+body {
+    font-family:
+        -apple-system, "Helvetica Neue", "PingFang SC", "Noto Sans SC",
+        "Microsoft YaHei", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fg);
+    background: var(--bg);
+    max-width: 34rem;
+    margin: 0;
+    padding: 2rem 1.5rem;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+:root {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #666;
+    --muted-light: #999;
+    --link-hover: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1a1a1a;
+        --fg: #e0e0e0;
+        --muted: #999;
+        --muted-light: #666;
+        --link-hover: #aaa;
+    }
+}
+
+a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+}
+
+.link-list {
+    counter-reset: link-counter;
+}
+
+.link-item {
+    counter-increment: link-counter;
+    margin-bottom: 1.8rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.link-title::before {
+    content: counter(link-counter) ".";
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    color: var(--muted-light);
+}
+
+.link-title {
+    margin-bottom: 0.2rem;
+}
+
+.link-title a {
+    font-size: 12px;
+}
+
+.link-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.link-desc p {
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.link-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.link-desc ul {
+    margin: 0.3em 0;
+    padding-left: 1.4em;
+}
+
+.link-desc li {
+    margin-bottom: 0.15em;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1.2rem 1rem;
+    }
+
+    .link-item {
+        padding-left: 1.6rem;
+    }
+}

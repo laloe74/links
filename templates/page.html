@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} - {{ config.title }}</title>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+    <h1><a href="/">{{ config.title }}</a></h1>
+    <div class="link-item">
+        <div class="link-title"><a href="{{ page.extra.url | safe }}" target="_blank" rel="noopener">{{ page.title }}</a></div>
+        <div class="link-desc">{{ page.content | safe }}</div>
+    </div>
+</body>
+</html>

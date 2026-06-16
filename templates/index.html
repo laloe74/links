@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config.title }}</title>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+    <h1>{{ config.title }}</h1>
+    {% set section = get_section(path="_index.md") %}
+    {% set total = section.pages | length %}
+    <div class="link-list">
+    {% for page in section.pages %}
+    <div class="link-item" style="counter-set: link-counter {{ total - loop.index0 }};">
+        <div class="link-title"><a href="{{ page.extra.url | safe }}" target="_blank" rel="noopener">{{ page.title }}</a></div>
+        <div class="link-desc">{{ page.content | safe }}</div>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
